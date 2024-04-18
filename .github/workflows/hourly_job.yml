@@ -1,0 +1,17 @@
+name: Hourly Cron Job
+
+on:
+  schedule:
+    # run per hour
+    - cron: "0 * * * *"
+
+jobs:
+  run_script:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Run a script
+        run: |
+          echo "Hello, the time is $(date)"
